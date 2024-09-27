@@ -1,0 +1,84 @@
+$errorColor: #de2424;
+$textSm: 12px;
+$textMd: 14px;
+$textLg: 16px;
+
+.input-wrapper {
+  margin-bottom: $textLg;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  input,
+  .submit-btn {
+    width: 100%;
+    display: block;
+  }
+
+  label {
+    display: inline-block;
+    font-size: $textMd;
+    margin-bottom: 4px;
+  }
+
+  input {
+    font-size: $textMd;
+    padding: $textLg;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
+
+    &:focus {
+      border-color: #c2c2c2;
+      background-color: #fff;
+      outline: 0;
+    }
+  }
+
+  .field-wrapper {
+    position: relative;
+    .icon-btn {
+      position: absolute;
+      bottom: 25px;
+      right: 8px;
+      transform: translateY(50%);
+      border: 0;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  &.has-error {
+    input {
+      border-color: $errorColor;
+    }
+  }
+  .error {
+    font-size: $textSm;
+    color: $errorColor;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+
+  .submit-btn {
+    cursor: pointer;
+    width: 100%;
+    padding: $textLg;
+    border: 0;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #326ef8;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #2a63e8;
+    }
+  }
+}

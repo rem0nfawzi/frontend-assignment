@@ -1,4 +1,29 @@
 /* DO NOT CHANGE THIS ROOT CLASS NAME*/
+* {
+  box-sizing: border-box;
+}
 #task-1 {
   /* Styles goes here */
+  .login-form {
+    background-color: #eee;
+    padding: 48px;
+    border-radius: 8px;
+    width: 450px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    h2 {
+      color: #000;
+      font-weight: 700;
+    }
+  }
+}
+
+@media (max-width: 567px) {
+  #task-1 {
+    .login-form {
+      padding: 16px;
+    }
+  }
 }

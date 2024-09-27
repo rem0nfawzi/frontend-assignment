@@ -10,11 +10,30 @@ import { FunctionComponent } from "react";
  * and remove the InputProps interface
  */
 
-interface InputProps {}
+interface InputProps {
+  searchText: string;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+  filterDisplayedItems: (searchText: string) => void;
+}
 
-const Input: FunctionComponent<InputProps> = (props) => {
+const Input: FunctionComponent<InputProps> = ({
+  searchText,
+  setSearchText,
+  filterDisplayedItems,
+}) => {
   return (
-    <div>#Input goes here#</div>
+    <div>
+      <input
+        type="text"
+        value={searchText}
+        onChange={(e) => {
+          const text = e.currentTarget.value;
+          setSearchText(text);
+          filterDisplayedItems(text);
+        }}
+        placeholder="Search Items"
+      />
+    </div>
   );
 };
 
