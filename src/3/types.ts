@@ -1,5 +1,7 @@
+export type todoStatusType = "pending" | "done";
+
 export type todoType = {
   id: string;
   title: string;
-  status: "pending" | "done";
+  status: todoStatusType;
 };

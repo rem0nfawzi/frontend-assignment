@@ -26,9 +26,10 @@ const AddTodo = () => {
     >
       <input
         type="text"
+        className={styles.input}
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
-        placeholder="Enter a new ToDo"
+        placeholder="Add a new ToDo"
       />
       <button type="submit">Add</button>
     </form>
