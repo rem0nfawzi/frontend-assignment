@@ -13,7 +13,6 @@ const Task2: FunctionComponent = () => {
   const [displayedListItems, setDisplayedListItems] = useState(listItems);
 
   const filterDisplayedItems = useCallback(
-    // searchText is passed a parameter, and not used directly from the state not to re create the function each time text changes
     (searchText: string) => {
       const lowerCaseText = searchText.toLocaleLowerCase().trim();
       setDisplayedListItems(

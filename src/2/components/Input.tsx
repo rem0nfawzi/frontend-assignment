@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { IoCloseCircle } from "react-icons/io5";
 
 /*
  * The InputProps interface defines the types for the components props.
@@ -22,9 +23,11 @@ const Input: FunctionComponent<InputProps> = ({
   filterDisplayedItems,
 }) => {
   return (
-    <div>
+    <div className="search-input-wrapper">
       <input
         type="text"
+        className="search-input"
+        data-testid="search-input"
         value={searchText}
         onChange={(e) => {
           const text = e.currentTarget.value;
@@ -33,6 +36,18 @@ const Input: FunctionComponent<InputProps> = ({
         }}
         placeholder="Search Items"
       />
+      {searchText.length > 0 && (
+        <button
+          className="remove-search-btn"
+          onClick={() => {
+            setSearchText("");
+            filterDisplayedItems("");
+          }}
+          data-testid="x-btn"
+        >
+          <IoCloseCircle size={20} />
+        </button>
+      )}
     </div>
   );
 };

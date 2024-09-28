@@ -24,7 +24,7 @@ interface ListProps {
 const List: FunctionComponent<ListProps> = ({ listItems }) => {
   return (
     <div>
-      <ul>
+      <ul className="list">
         {listItems.map((item) => (
           <Item key={item.id} id={item.id} title={item.title} />
         ))}

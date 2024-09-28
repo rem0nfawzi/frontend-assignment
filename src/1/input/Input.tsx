@@ -1,6 +1,7 @@
+import { FunctionComponent } from "react";
 import "./input.scss";
 
-type inputProps = {
+interface inputProps {
   id: string;
   name: string;
   type?: "text" | "password";
@@ -12,9 +13,9 @@ type inputProps = {
   icon?: React.ReactNode;
   handleIconClick?: () => void;
   placeholder?: string;
-};
+}
 
-const Input = ({
+const Input: FunctionComponent<inputProps> = ({
   id,
   name,
   type = "text",
@@ -26,7 +27,7 @@ const Input = ({
   icon,
   handleIconClick,
   placeholder,
-}: inputProps) => {
+}) => {
   return (
     <div className={`input-wrapper${error ? " has-error" : ""}`}>
       <label htmlFor={id}>{name}</label>

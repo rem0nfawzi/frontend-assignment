@@ -12,7 +12,7 @@ import { ItemProps } from "./List";
  */
 
 const Item: FunctionComponent<ItemProps> = ({ title }) => {
-  return <li>{title}</li>;
+  return <li data-testid="list-item">{title}</li>;
 };
 
 export default Item;
