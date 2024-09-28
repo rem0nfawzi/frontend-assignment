@@ -9,6 +9,7 @@ const SearchTodos = () => {
       value={searchText}
       setValue={setSearchText}
       placeholder="Search ToDos"
+      testId="search-input"
     />
   );
 };

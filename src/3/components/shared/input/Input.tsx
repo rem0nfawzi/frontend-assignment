@@ -8,6 +8,7 @@ type inputProps = {
     text: string
   ) => void | React.Dispatch<React.SetStateAction<string>>;
   placeholder?: string;
+  testId?: string;
 };
 
 const Input = ({
@@ -15,12 +16,14 @@ const Input = ({
   value,
   setValue,
   placeholder,
+  testId = "input",
 }: inputProps) => {
   return (
     <div className={styles.input_wrapper}>
       <input
         type="text"
         className={`${styles.input} ${styles[size]}`}
+        data-testid={testId}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder={placeholder}
@@ -32,7 +35,7 @@ const Input = ({
           onClick={() => {
             setValue("");
           }}
-          data-testid="x-btn"
+          data-testid="clear-btn"
         >
           <IoCloseCircle size={16} />
         </button>

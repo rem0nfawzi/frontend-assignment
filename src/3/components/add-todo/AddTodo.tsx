@@ -24,9 +24,19 @@ const AddTodo = () => {
         e.preventDefault();
         handleSubmit(todo);
       }}
+      data-testid="add-form"
     >
-      <Input value={todo} setValue={setTodo} placeholder="Add a new ToDo" />
-      <button type="submit" className={styles.submit_btn}>
+      <Input
+        value={todo}
+        setValue={setTodo}
+        placeholder="Add a new ToDo"
+        testId="add-input"
+      />
+      <button
+        type="submit"
+        className={styles.submit_btn}
+        data-testid="submit-btn"
+      >
         Add
       </button>
     </form>

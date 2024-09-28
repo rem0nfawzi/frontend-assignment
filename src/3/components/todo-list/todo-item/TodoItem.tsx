@@ -5,7 +5,7 @@ import styles from "./todo.module.scss";
 const TodoItem = ({ todo }: { todo: todoType }) => {
   const { updateTodoStatus, deleteTodo } = useTodosStore();
   return (
-    <li className={styles.todo}>
+    <li className={styles.todo} data-testid="list-item">
       <div
         className={`${styles.title} ${
           todo.status === "done" ? styles.done : ""
@@ -26,6 +26,7 @@ const TodoItem = ({ todo }: { todo: todoType }) => {
           className={`${styles.status} ${
             todo.status === "done" ? styles.status_done : ""
           }`}
+          data-testid="status"
         >
           {todo.status}
         </span>
@@ -36,10 +37,15 @@ const TodoItem = ({ todo }: { todo: todoType }) => {
               todo.status === "pending" ? "done" : "pending"
             )
           }
+          data-testid="mark-as"
         >
           {todo.status === "pending" ? "Mark as done" : "Mark as pending"}
         </button>
-        <button onClick={() => deleteTodo(todo.id)} className={styles.delete}>
+        <button
+          onClick={() => deleteTodo(todo.id)}
+          className={styles.delete}
+          data-testid="delete-todo"
+        >
           Delete
         </button>
       </div>

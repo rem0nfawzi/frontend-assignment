@@ -24,7 +24,7 @@ const TodoList = () => {
           ))}
         </ul>
       ) : (
-        <p>
+        <p data-testid="empty-msg">
           {searchText
             ? "No ToDos matches your search"
             : "No ToDos found, start adding new ToDos!"}
