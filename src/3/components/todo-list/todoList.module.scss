@@ -1,3 +1,5 @@
+@import "../../mixins.scss";
+
 .todo_list {
   list-style: none;
   padding-left: 0;
@@ -17,7 +19,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@include breakpoint("medium") {
   .title_wrapper {
     > div {
       flex-grow: 1;
