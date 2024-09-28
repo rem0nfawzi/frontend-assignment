@@ -1,18 +1,23 @@
 .input_wrapper {
   position: relative;
   display: inline-block;
-  margin-bottom: 16px;
-  max-width: 100%;
 
   .input {
-    width: 400px;
     max-width: 100%;
     font-size: 14px;
-    padding: 12px 16px;
     border: 1px solid #d6d6d6;
-    border-radius: 8px;
+    border-radius: 4px;
     transition: all 0.2s ease-in-out;
 
+    &.medium {
+      width: 400px;
+      padding: 12px 16px;
+    }
+
+    &.small {
+      width: 300px;
+      padding: 8px 12px;
+    }
     &:hover {
       background-color: #f5f5f5;
     }

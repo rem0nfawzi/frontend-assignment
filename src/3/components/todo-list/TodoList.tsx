@@ -13,13 +13,23 @@ const TodoList = () => {
     searchText !== "" ? filteredItems : [...pendingTodos, ...doneTodos];
   return (
     <>
-      <h2>ToDos</h2>
-      <SearchTodos />
-      <ul className={styles.todo_list}>
-        {displayedTodos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} />
-        ))}
-      </ul>
+      <div className={styles.title_wrapper}>
+        <h2>ToDos</h2>
+        {todos.length > 0 && <SearchTodos />}
+      </div>
+      {displayedTodos.length > 0 ? (
+        <ul className={styles.todo_list}>
+          {displayedTodos.map((todo) => (
+            <TodoItem key={todo.id} todo={todo} />
+          ))}
+        </ul>
+      ) : (
+        <p>
+          {searchText
+            ? "No ToDos matches your search"
+            : "No ToDos found, start adding new ToDos!"}
+        </p>
+      )}
     </>
   );
 };

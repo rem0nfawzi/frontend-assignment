@@ -1,7 +1,8 @@
 import { useCallback, useState } from "react";
-import styles from "./addTodo.module.scss";
 import { useTodosStore } from "../../store/useTodosStore";
 import { v4 as uuidv4 } from "uuid";
+import Input from "../shared/input/Input";
+import styles from "./addTodo.module.scss";
 
 const AddTodo = () => {
   const [todo, setTodo] = useState("");
@@ -24,14 +25,10 @@ const AddTodo = () => {
         handleSubmit(todo);
       }}
     >
-      <input
-        type="text"
-        className={styles.input}
-        value={todo}
-        onChange={(e) => setTodo(e.target.value)}
-        placeholder="Add a new ToDo"
-      />
-      <button type="submit">Add</button>
+      <Input value={todo} setValue={setTodo} placeholder="Add a new ToDo" />
+      <button type="submit" className={styles.submit_btn}>
+        Add
+      </button>
     </form>
   );
 };

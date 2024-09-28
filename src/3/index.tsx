@@ -3,7 +3,6 @@ import * as React from "react";
 // Style
 import "./index.scss";
 import TodoList from "./components/todo-list/TodoList";
-import SearchTodos from "./components/search-todos/SearchTodos";
 import AddTodo from "./components/add-todo/AddTodo";
 
 // Components

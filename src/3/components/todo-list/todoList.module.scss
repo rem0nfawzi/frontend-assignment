@@ -4,3 +4,26 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.title_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 16px;
+  margin-bottom: 24px;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .title_wrapper {
+    > div {
+      flex-grow: 1;
+      input {
+        width: 100% !important;
+      }
+    }
+  }
+}

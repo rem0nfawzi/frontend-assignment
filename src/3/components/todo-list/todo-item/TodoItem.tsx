@@ -6,9 +6,29 @@ const TodoItem = ({ todo }: { todo: todoType }) => {
   const { updateTodoStatus, deleteTodo } = useTodosStore();
   return (
     <li className={styles.todo}>
-      <p>{todo.title}</p>
+      <div
+        className={`${styles.title} ${
+          todo.status === "done" ? styles.done : ""
+        }`}
+      >
+        <p>{todo.title}</p>
+        <span
+          className={`${styles.status} ${
+            todo.status === "done" ? styles.status_done : ""
+          }`}
+        >
+          {todo.status}
+        </span>
+      </div>
+
       <div className={styles.actions}>
-        <p className={styles.status}>{todo.status}</p>
+        <span
+          className={`${styles.status} ${
+            todo.status === "done" ? styles.status_done : ""
+          }`}
+        >
+          {todo.status}
+        </span>
         <button
           onClick={() =>
             updateTodoStatus(
@@ -19,7 +39,9 @@ const TodoItem = ({ todo }: { todo: todoType }) => {
         >
           {todo.status === "pending" ? "Mark as done" : "Mark as pending"}
         </button>
-        <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+        <button onClick={() => deleteTodo(todo.id)} className={styles.delete}>
+          Delete
+        </button>
       </div>
     </li>
   );

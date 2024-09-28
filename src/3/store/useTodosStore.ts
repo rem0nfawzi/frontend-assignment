@@ -39,14 +39,32 @@ export const useTodosStore = create<Store>()((set) => ({
       return { todos: newTodos, filteredItems: newFilteredItems };
     }),
   updateTodoStatus: (id: string, status: todoStatusType) =>
-    set((state) => ({
-      todos: state.todos.map((todo) => ({
+    set((state) => {
+      const newTodos = state.todos.map((todo) => ({
         ...todo,
         status: todo.id === id ? status : todo.status,
-      })),
-    })),
+      }));
+
+      // To update the filtered items too
+      const newFilteredItems = calculateFilteredItems(
+        state.searchText,
+        newTodos
+      );
+      return {
+        todos: newTodos,
+        filteredItems: newFilteredItems,
+      };
+    }),
   deleteTodo: (id: string) =>
-    set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) })),
+    set((state) => {
+      const newTodos = state.todos.filter((todo) => todo.id !== id);
+      // To update the filtered items too
+      const newFilteredItems = calculateFilteredItems(
+        state.searchText,
+        newTodos
+      );
+      return { todos: newTodos, filteredItems: newFilteredItems };
+    }),
   searchText: "",
   setSearchText: (text) =>
     set((state) => {
